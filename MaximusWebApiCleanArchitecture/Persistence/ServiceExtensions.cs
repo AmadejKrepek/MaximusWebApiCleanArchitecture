@@ -12,8 +12,7 @@ namespace Persistence
         public static void ConfigurePersistence(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration.GetConnectionString("Sqlite");
-            services.AddDbContextPool<DataContext>(options => options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
-
+            services.AddDbContext<DataContext>(opt => opt.UseSqlite(connectionString));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
         }

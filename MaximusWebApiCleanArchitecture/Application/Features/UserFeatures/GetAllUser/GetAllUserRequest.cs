@@ -1,6 +1,6 @@
-﻿namespace Application.Features.UserFeatures.GetAllUser
+﻿using MediatR;
+
+namespace Application.Features.UserFeatures.GetAllUser
 {
-    public class GetAllUserRequest
-    {
-    }
+    public sealed record GetAllUserRequest : IRequest<List<GetAllUserResponse>>;
 }
