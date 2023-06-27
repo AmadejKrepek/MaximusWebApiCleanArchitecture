@@ -11,10 +11,10 @@ namespace Persistence
     {
         public static void ConfigurePersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("Sqlite");
-            services.AddDbContext<DataContext>(opt => opt.UseSqlite(connectionString));
+            var connectionString = configuration.GetConnectionString("StationContext");
+            services.AddDbContext<StationContext>(opt => opt.UseNpgsql(connectionString));
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IStationRepository, StationRepository>();
         }
     }
 }

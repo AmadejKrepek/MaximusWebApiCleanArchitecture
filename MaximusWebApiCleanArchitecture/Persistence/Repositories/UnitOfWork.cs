@@ -5,9 +5,9 @@ namespace Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DataContext _context;
+        private readonly StationContext _context;
 
-        public UnitOfWork(DataContext context)
+        public UnitOfWork(StationContext context)
         {
             _context = context;
         }

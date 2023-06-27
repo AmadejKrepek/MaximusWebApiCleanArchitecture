@@ -19,7 +19,7 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 var serviceScope = app.Services.CreateScope();
-var dataContext = serviceScope.ServiceProvider.GetService<DataContext>();
+var dataContext = serviceScope.ServiceProvider.GetService<StationContext>();
 dataContext?.Database.EnsureCreated();
 
 // Configure the HTTP request pipeline.
