@@ -11,13 +11,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C6630150-C813-4EBF-A4F5-16009179D0C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{04571EA9-D7C2-4F13-BA54-B6233777D488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{04571EA9-D7C2-4F13-BA54-B6233777D488}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{A656FC48-699A-409E-9CB4-0BE79C130F8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{A656FC48-699A-409E-9CB4-0BE79C130F8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{8AFBBF25-4D3B-45A3-A954-9FCD2357ACBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{8AFBBF25-4D3B-45A3-A954-9FCD2357ACBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaximusWebApiCleanArchitecture", "MaximusWebApiCleanArchitecture\MaximusWebApiCleanArchitecture.csproj", "{E82E6783-89D9-4B42-85D5-0713F1B4DF5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaximusWebApiCleanArchitecture", "MaximusWebApiCleanArchitecture\MaximusWebApiCleanArchitecture.csproj", "{E82E6783-89D9-4B42-85D5-0713F1B4DF5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7E8BB141-E830-4945-9F0B-6BF8B653ED89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
