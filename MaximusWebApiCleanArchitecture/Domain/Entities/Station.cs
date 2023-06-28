@@ -4,6 +4,6 @@ namespace Domain.Entities
 {
     public class Station : BaseEntity
     {
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

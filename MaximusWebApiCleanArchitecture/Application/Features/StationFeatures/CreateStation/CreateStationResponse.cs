@@ -3,6 +3,6 @@
     public sealed record CreateStationResponse
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
     }
 }

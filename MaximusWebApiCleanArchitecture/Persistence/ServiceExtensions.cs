@@ -18,13 +18,13 @@ namespace Persistence
 
             string connectionString = string.Format(
                 connectionStringTemplate,
-                settings.Server,
-                settings.Port,
-                settings.Database,
-                settings.User,
-                settings.Password,
-                settings.SecurityInfo,
-                settings.Timeout,
+                settings?.Server,
+                settings?.Port,
+                settings?.Database,
+                settings?.User,
+                settings?.Password,
+                settings?.SecurityInfo,
+                settings?.Timeout,
                 true);
 
             services.AddDbContext<StationContext>(opt =>
