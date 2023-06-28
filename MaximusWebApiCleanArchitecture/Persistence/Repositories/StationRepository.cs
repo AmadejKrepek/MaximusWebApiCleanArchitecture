@@ -1,4 +1,5 @@
-﻿using Application.Repositories;
+﻿using Application.Common.Exceptions;
+using Application.Repositories;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Persistence.Context;
@@ -15,6 +16,17 @@ namespace Persistence.Repositories
         public async Task<Station> GetStationByName(string name, CancellationToken cancellationToken)
         {
             return await Context.Stations.FirstOrDefaultAsync(x => x.Name == name, cancellationToken);
+        }
+
+        public void CreateIfNotExists(Station station)
+        {
+            if (Context.Stations.Any(x => x.Name == station.Name))
+            {
+                throw new BadRequestException("This station already exists");
+            }
+
+            station.DateCreated = DateTimeOffset.UtcNow;
+            Context.Add(station);
         }
     }
 }
