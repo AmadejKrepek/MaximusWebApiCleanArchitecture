@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Persistence.Configuration;
 using Persistence.Context;
 using Persistence.Repositories;
 
@@ -11,8 +13,26 @@ namespace Persistence
     {
         public static void ConfigurePersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            var connectionString = configuration.GetConnectionString("StationContext");
-            services.AddDbContext<StationContext>(opt => opt.UseNpgsql(connectionString));
+            DatabaseSettings? settings = configuration.GetSection("DatabaseSettings").Get<DatabaseSettings>();
+            string? connectionStringTemplate = configuration.GetConnectionString("DefaultConnection");
+
+            string connectionString = string.Format(
+                connectionStringTemplate,
+                settings.Server,
+                settings.Port,
+                settings.Database,
+                settings.User,
+                settings.Password,
+                settings.SecurityInfo,
+                settings.Timeout,
+                true);
+
+            services.AddDbContext<StationContext>(opt =>
+                opt.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString))
+                .LogTo(Console.WriteLine, LogLevel.Information)
+                .EnableSensitiveDataLogging()
+                .EnableDetailedErrors()
+            );
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IStationRepository, StationRepository>();
         }
