@@ -1,30 +1,29 @@
-﻿using Application.Features.UserFeatures.CreateUser;
-using Application.Features.UserFeatures.GetAllUser;
+﻿using Application.Features.StationFeatures.CreateStation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MaximusWebApiCleanArchitecture.Controllers
 {
     [ApiController]
-    [Route("user")]
-    public class UserController : ControllerBase
+    [Route("station")]
+    public class StationController : ControllerBase
     {
         private readonly IMediator _mediator;
 
-        public UserController(IMediator mediator)
+        public StationController(IMediator mediator)
         {
             _mediator = mediator;
         }
 
-        [HttpGet]
+/*        [HttpGet]
         public async Task<ActionResult<List<GetAllUserResponse>>> GetAll(CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(new GetAllUserRequest(), cancellationToken);
             return Ok(response);
-        }
+        }*/
 
         [HttpPost]
-        public async Task<ActionResult<CreateUserResponse>> Create(CreateUserRequest request, 
+        public async Task<ActionResult<CreateStationResponse>> Create(CreateStationRequest request,
             CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(request, cancellationToken);

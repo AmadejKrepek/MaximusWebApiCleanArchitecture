@@ -7,9 +7,9 @@ namespace Persistence.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {
-        protected readonly DataContext Context;
+        protected readonly StationContext Context;
 
-        public BaseRepository(DataContext context)
+        public BaseRepository(StationContext context)
         {
             Context = context;
         }
