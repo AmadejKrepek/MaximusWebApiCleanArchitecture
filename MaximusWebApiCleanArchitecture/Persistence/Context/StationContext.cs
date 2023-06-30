@@ -15,7 +15,7 @@ namespace Persistence.Context
             builder.Entity<Station>()
                 .HasOne(s => s.StationData)
                 .WithOne(sd => sd.Station)
-                .HasForeignKey<StationData>(sd => sd.Id);
+                .HasForeignKey<StationData>(sd => sd.StationId);
         }
 
         public DbSet<Station> Stations { get; set; }
