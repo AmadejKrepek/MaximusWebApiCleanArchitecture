@@ -1,4 +1,5 @@
 ﻿using Application.Common.Exceptions;
+using Application.Features.StationFeatures.GetStationById;
 using Application.Repositories;
 using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +14,9 @@ namespace Persistence.Repositories
             
         }
 
-        public async Task<Station> GetStationByName(string name, CancellationToken cancellationToken)
+        public async Task<Station> GetStationByName(GetStationByNameRequest request, CancellationToken cancellationToken)
         {
-            return await Context.Stations.FirstOrDefaultAsync(x => x.Name == name, cancellationToken);
+            return await Context.Stations.FirstOrDefaultAsync(x => x.Name == request.Name, cancellationToken);
         }
 
         public void CreateIfNotExists(Station station)
