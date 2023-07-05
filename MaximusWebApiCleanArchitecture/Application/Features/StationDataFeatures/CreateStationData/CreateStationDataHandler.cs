@@ -11,6 +11,13 @@ namespace Application.Features.StationDataFeatures.CreateStationData
         private readonly IStationDataRepository _stationDataRepository;
         private readonly IMapper _mapper;
 
+        public CreateStationDataHandler(IUnitOfWork unitOfWork, IStationDataRepository stationDataRepository, IMapper mapper)
+        {
+            _unitOfWork = unitOfWork;
+            _stationDataRepository = stationDataRepository;
+            _mapper = mapper;
+        }
+
         public async Task<CreateStationDataResponse> Handle(CreateStationDataRequest request, CancellationToken cancellationToken)
         {
             var stationData = _mapper.Map<StationData>(request);

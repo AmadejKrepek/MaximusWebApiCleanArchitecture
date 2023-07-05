@@ -1,5 +1,4 @@
-﻿using Domain.Entities;
-using MediatR;
+﻿using MediatR;
 
 namespace Application.Features.StationDataFeatures.CreateStationData
 {
@@ -12,6 +11,6 @@ namespace Application.Features.StationDataFeatures.CreateStationData
         int? WindDirection,
         double? DailyRain,
         double? SolarRadiation,
-        Station? Station
+        Guid StationId
      ) : IRequest<CreateStationDataResponse>;
 }

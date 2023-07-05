@@ -6,7 +6,7 @@ namespace Application.Features.StationDataFeatures.CreateStationData
     {
         public CreateStationDataValidator()
         {
-
+            RuleFor(x => x.StationId).NotEmpty().NotNull();
         }
     }
 }
