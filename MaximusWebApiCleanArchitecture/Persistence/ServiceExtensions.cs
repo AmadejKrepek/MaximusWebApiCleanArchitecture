@@ -35,6 +35,7 @@ namespace Persistence
             );
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IStationRepository, StationRepository>();
+            services.AddScoped<IStationDataRepository, StationDataRepository>();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Domain.Common.Stations;
+using Domain.Entities;
 using MediatR;
 
 namespace Application.Features.StationFeatures.CreateStation

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Context;
 
@@ -10,9 +11,11 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(StationContext))]
-    partial class StationContextModelSnapshot : ModelSnapshot
+    [Migration("20230628161009_StationDataTableCreated")]
+    partial class StationDataTableCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -63,7 +66,6 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Entities.StationData", b =>
                 {
                     b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
                     b.Property<double?>("DailyRain")
@@ -87,9 +89,6 @@ namespace Persistence.Migrations
                     b.Property<double?>("SolarRadiation")
                         .HasColumnType("double");
 
-                    b.Property<Guid>("StationId")
-                        .HasColumnType("char(36)");
-
                     b.Property<double?>("Temperature")
                         .HasColumnType("double");
 
@@ -104,9 +103,6 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StationId")
-                        .IsUnique();
-
                     b.ToTable("StationData");
                 });
 
@@ -114,7 +110,7 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Domain.Entities.Station", "Station")
                         .WithOne("StationData")
-                        .HasForeignKey("Domain.Entities.StationData", "StationId")
+                        .HasForeignKey("Domain.Entities.StationData", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -123,8 +119,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Station", b =>
                 {
-                    b.Navigation("StationData")
-                        .IsRequired();
+                    b.Navigation("StationData");
                 });
 #pragma warning restore 612, 618
         }

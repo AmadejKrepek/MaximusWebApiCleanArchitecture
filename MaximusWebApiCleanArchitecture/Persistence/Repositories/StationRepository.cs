@@ -25,6 +25,8 @@ namespace Persistence.Repositories
                 throw new BadRequestException("This station already exists");
             }
 
+            station.StationData = new StationData();
+
             station.DateCreated = DateTimeOffset.UtcNow;
             Context.Add(station);
         }

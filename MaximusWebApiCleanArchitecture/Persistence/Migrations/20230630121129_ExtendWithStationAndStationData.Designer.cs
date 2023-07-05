@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Persistence.Context;
 
@@ -10,9 +11,11 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(StationContext))]
-    partial class StationContextModelSnapshot : ModelSnapshot
+    [Migration("20230630121129_ExtendWithStationAndStationData")]
+    partial class ExtendWithStationAndStationData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -123,8 +126,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Station", b =>
                 {
-                    b.Navigation("StationData")
-                        .IsRequired();
+                    b.Navigation("StationData");
                 });
 #pragma warning restore 612, 618
         }
