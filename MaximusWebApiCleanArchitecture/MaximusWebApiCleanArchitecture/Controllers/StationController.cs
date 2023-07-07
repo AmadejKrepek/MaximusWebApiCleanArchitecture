@@ -1,6 +1,7 @@
 ﻿using Application.Features.StationFeatures.CreateStation;
 using Application.Features.StationFeatures.DeleteStation;
 using Application.Features.StationFeatures.GetAllStation;
+using Application.Features.StationFeatures.GetStationById;
 using Application.Features.StationFeatures.UpdateStation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,14 @@ namespace MaximusWebApiCleanArchitecture.Controllers
         public async Task<ActionResult<List<GetAllStationResponse>>> GetAll(CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(new GetAllStationRequest(), cancellationToken);
+            return Ok(response);
+        }
+
+        [HttpGet("name")]
+        public async Task<ActionResult<GetStationByNameResponse>> GetByName([FromQuery] string name, 
+            CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(new GetStationByNameRequest(name), cancellationToken);
             return Ok(response);
         }
 

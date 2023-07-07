@@ -10,6 +10,5 @@
         public int? WindDirection { get; set; }
         public double? DailyRain { get; set; }
         public double? SolarRadiation { get; set; }
-        public Guid StationId { get; set; }
     }
 }

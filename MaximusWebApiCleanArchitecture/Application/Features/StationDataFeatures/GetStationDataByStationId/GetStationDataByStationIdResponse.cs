@@ -1,8 +1,8 @@
 ﻿using Domain.Entities;
 
-namespace Application.Features.StationDataFeatures.CreateStationData
+namespace Application.Features.StationDataFeatures.GetStationDataByStationId
 {
-    public sealed record CreateStationDataResponse
+    public sealed record GetStationDataByStationIdResponse
     {
         public double? Temperature { get; set; }
         public double? Dewpoint { get; set; }

@@ -11,8 +11,8 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(StationContext))]
-    [Migration("20230630121129_ExtendWithStationAndStationData")]
-    partial class ExtendWithStationAndStationData
+    [Migration("20230707122136_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -107,8 +107,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StationId")
-                        .IsUnique();
+                    b.HasIndex("StationId");
 
                     b.ToTable("StationData");
                 });
@@ -116,8 +115,8 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Entities.StationData", b =>
                 {
                     b.HasOne("Domain.Entities.Station", "Station")
-                        .WithOne("StationData")
-                        .HasForeignKey("Domain.Entities.StationData", "StationId")
+                        .WithMany("StationData")
+                        .HasForeignKey("StationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
