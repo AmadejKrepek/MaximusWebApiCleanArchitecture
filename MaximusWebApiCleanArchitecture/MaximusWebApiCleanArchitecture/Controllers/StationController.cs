@@ -3,6 +3,7 @@ using Application.Features.StationFeatures.DeleteStation;
 using Application.Features.StationFeatures.GetAllStation;
 using Application.Features.StationFeatures.GetStationById;
 using Application.Features.StationFeatures.UpdateStation;
+using Application.Repositories.Logging;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

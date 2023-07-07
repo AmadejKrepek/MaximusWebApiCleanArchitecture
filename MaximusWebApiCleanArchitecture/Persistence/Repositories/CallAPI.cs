@@ -1,5 +1,6 @@
 ﻿using Application.Common.Exceptions;
 using Application.Repositories;
+using Application.Repositories.Logging;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
@@ -7,13 +8,16 @@ namespace Persistence.Repositories
 {
     public class CallAPI : ICallApi
     {
+        private readonly ILoggerManager _logger;
+
         protected HttpClient _client = new HttpClient();
         private string _baseUrl = "";
 
-        public CallAPI(HttpClient client, string baseUrl)
+        public CallAPI(HttpClient client, string baseUrl, ILoggerManager logger)
         {
             _client = client;
             _baseUrl = baseUrl;
+            _logger = logger;
         }
 
         public void SetAuthenticationHeaderValue(string token)
