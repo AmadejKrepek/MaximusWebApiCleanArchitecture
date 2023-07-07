@@ -1,6 +1,4 @@
-﻿using Domain.Entities;
-
-namespace Application.Features.StationDataFeatures.GetStationData
+﻿namespace Application.Features.StationDataFeatures.GetStationData
 {
     public sealed record GetStationDataResponse
     {
@@ -12,8 +10,5 @@ namespace Application.Features.StationDataFeatures.GetStationData
         public int? WindDirection { get; set; }
         public double? DailyRain { get; set; }
         public double? SolarRadiation { get; set; }
-
-        public Guid StationId { get; set; }
-        public Station Station { get; set; }
     }
 }

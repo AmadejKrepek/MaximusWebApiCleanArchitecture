@@ -12,6 +12,6 @@ namespace Domain.Entities
         public ConnectionStatus ConnectionStatus { get; set; }
         public DateTimeOffset? LastUpdated { get; set; }
         public UnitOfMeasurement UnitOfMeasurement { get; set; }
-        public StationData StationData { get; set; }
+        public ICollection<StationData> StationData { get; set; }
     }
 }

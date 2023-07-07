@@ -1,6 +1,7 @@
 ﻿using Application.Features.StationDataFeatures.CreateStationData;
 using Application.Features.StationDataFeatures.DeleteStationData;
 using Application.Features.StationDataFeatures.GetStationData;
+using Application.Features.StationDataFeatures.GetStationDataByStationId;
 using Application.Features.StationDataFeatures.UpdateStationData;
 using Application.Features.StationFeatures.UpdateStation;
 using MediatR;
@@ -23,6 +24,14 @@ namespace MaximusWebApiCleanArchitecture.Controllers
         public async Task<ActionResult<List<GetStationDataResponse>>> Get(CancellationToken cancellationToken)
         {
             var response = await _mediator.Send(new GetStationDataRequest(), cancellationToken);
+            return Ok(response);
+        }
+
+        [HttpGet("stationId")]
+        public async Task<ActionResult<List<GetStationDataByStationIdResponse>>> GetStationDataByStationId([FromQuery] GetStationDataByStationIdRequest request,
+            CancellationToken cancellationToken)
+        {
+            var response = await _mediator.Send(request, cancellationToken);
             return Ok(response);
         }
 
