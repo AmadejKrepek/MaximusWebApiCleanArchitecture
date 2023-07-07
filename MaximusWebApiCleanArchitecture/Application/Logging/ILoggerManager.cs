@@ -1,4 +1,4 @@
-﻿namespace Application.Repositories.Logging
+﻿namespace Application.Logging
 {
     public interface ILoggerManager
     {

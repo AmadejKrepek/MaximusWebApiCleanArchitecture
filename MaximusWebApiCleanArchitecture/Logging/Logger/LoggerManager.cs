@@ -1,7 +1,7 @@
-﻿using Application.Repositories.Logging;
+﻿using Application.Logging;
 using NLog;
 
-namespace Persistence.Repositories.Logging
+namespace Logging.Logger
 {
     public class LoggerManager : ILoggerManager
     {
