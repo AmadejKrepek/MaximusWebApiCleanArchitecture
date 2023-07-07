@@ -1,14 +1,11 @@
-﻿using Application.Repositories;
-using Application.Repositories.Logging;
+﻿using Application.Logging;
+using Application.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using NLog;
 using Persistence.Configuration;
 using Persistence.Context;
 using Persistence.Repositories;
-using Persistence.Repositories.Logging;
 
 namespace Persistence
 {
@@ -16,8 +13,6 @@ namespace Persistence
     {
         public static void ConfigurePersistence(this IServiceCollection services, IConfiguration configuration)
         {
-            LogManager.Setup().LoadConfigurationFromFile(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
-
             DatabaseSettings? settings = configuration.GetSection("DatabaseSettings").Get<DatabaseSettings>();
             string? connectionStringTemplate = configuration.GetConnectionString("DefaultConnection");
 
@@ -40,7 +35,6 @@ namespace Persistence
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IStationRepository, StationRepository>();
             services.AddScoped<IStationDataRepository, StationDataRepository>();
-            services.AddScoped<ILoggerManager, LoggerManager>();
         }
     }
 }

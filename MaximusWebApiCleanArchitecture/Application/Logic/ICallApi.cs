@@ -1,4 +1,4 @@
-﻿namespace Application.Repositories.Logic
+﻿namespace Application.Logic
 {
     public interface ICallApi
     {

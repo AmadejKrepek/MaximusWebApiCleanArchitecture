@@ -1,6 +1,6 @@
 ﻿using Application.Common.Exceptions;
-using Application.Repositories.Logging;
-using Application.Repositories.Logic;
+using Application.Logging;
+using Application.Logic;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 

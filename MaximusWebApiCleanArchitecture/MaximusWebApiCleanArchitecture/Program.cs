@@ -1,4 +1,5 @@
 using Application;
+using Logging;
 using MaximusWebApiCleanArchitecture.Extensions;
 using Persistence;
 using Persistence.Context;
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.ConfigurePersistence(builder.Configuration);
+builder.Services.ConfigureLogging(builder.Configuration);
 builder.Services.ConfigureApplication();
 
 builder.Services.ConfigureApiBehavior();
