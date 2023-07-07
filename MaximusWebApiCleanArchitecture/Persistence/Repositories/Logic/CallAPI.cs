@@ -1,10 +1,10 @@
 ﻿using Application.Common.Exceptions;
-using Application.Repositories;
 using Application.Repositories.Logging;
+using Application.Repositories.Logic;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
-namespace Persistence.Repositories
+namespace Persistence.Repositories.Logic
 {
     public class CallAPI : ICallApi
     {
