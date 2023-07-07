@@ -104,8 +104,7 @@ namespace Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("StationId")
-                        .IsUnique();
+                    b.HasIndex("StationId");
 
                     b.ToTable("StationData");
                 });
@@ -113,8 +112,8 @@ namespace Persistence.Migrations
             modelBuilder.Entity("Domain.Entities.StationData", b =>
                 {
                     b.HasOne("Domain.Entities.Station", "Station")
-                        .WithOne("StationData")
-                        .HasForeignKey("Domain.Entities.StationData", "StationId")
+                        .WithMany("StationData")
+                        .HasForeignKey("StationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -123,8 +122,7 @@ namespace Persistence.Migrations
 
             modelBuilder.Entity("Domain.Entities.Station", b =>
                 {
-                    b.Navigation("StationData")
-                        .IsRequired();
+                    b.Navigation("StationData");
                 });
 #pragma warning restore 612, 618
         }
