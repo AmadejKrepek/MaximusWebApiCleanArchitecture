@@ -1,3 +1,4 @@
+using APILogic;
 using Application;
 using Logging;
 using MaximusWebApiCleanArchitecture.Extensions;
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.ConfigurePersistence(builder.Configuration);
 builder.Services.ConfigureLogging(builder.Configuration);
+builder.Services.ConfigureAPILogic(builder.Configuration);
 builder.Services.ConfigureApplication();
 
 builder.Services.ConfigureApiBehavior();

@@ -11,7 +11,6 @@ namespace Application.Features.StationFeatures.CreateStation
             RuleFor(x => x.Longitude).NotNull();
             RuleFor(x => x.Altitude).NotEmpty().NotNull();
             RuleFor(x => x.ConnectionStatus).NotNull();
-            RuleFor(x => x.LastUpdated).NotNull();
             RuleFor(x => x.UnitOfMeasurement).NotNull();
         }
     }

@@ -11,7 +11,7 @@ using Persistence.Context;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(StationContext))]
-    [Migration("20230707122136_InitialCreate")]
+    [Migration("20230720125154_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -41,9 +41,6 @@ namespace Persistence.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTimeOffset?>("DateUpdated")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTimeOffset?>("LastUpdated")
                         .HasColumnType("datetime(6)");
 
                     b.Property<float?>("Latitude")
@@ -87,6 +84,9 @@ namespace Persistence.Migrations
                     b.Property<double?>("Humidity")
                         .HasColumnType("double");
 
+                    b.Property<double?>("MonthlyRain")
+                        .HasColumnType("double");
+
                     b.Property<double?>("SolarRadiation")
                         .HasColumnType("double");
 
@@ -94,6 +94,9 @@ namespace Persistence.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<double?>("Temperature")
+                        .HasColumnType("double");
+
+                    b.Property<double?>("WeeklyRain")
                         .HasColumnType("double");
 
                     b.Property<int?>("WindDirection")

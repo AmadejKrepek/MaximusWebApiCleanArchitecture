@@ -10,6 +10,8 @@ namespace Application.Features.StationDataFeatures.CreateStationData
         double? WindGust,
         int? WindDirection,
         double? DailyRain,
+        double? WeeklyRain,
+        double? MonthlyRain,
         double? SolarRadiation,
         Guid StationId
      ) : IRequest<CreateStationDataResponse>;

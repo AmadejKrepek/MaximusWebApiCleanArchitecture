@@ -6,7 +6,6 @@ namespace Application.Repositories
     {
         void Create(T entity);
         void Update(T entity);
-        void UpdateById(string id, T entity);
         void Delete(T entity);
         Task<T> Get(Guid id, CancellationToken cancellationToken);
         Task<List<T>> GetAll(CancellationToken cancellationToken);

@@ -12,6 +12,8 @@ namespace Application.Features.StationDataFeatures.UpdateStationData
         double? WindGust,
         int? WindDirection,
         double? DailyRain,
+        double? WeeklyRain,
+        double? MonthlyRain,
         double? SolarRadiation
         )
        : IRequest<UpdateStationDataResponse>;

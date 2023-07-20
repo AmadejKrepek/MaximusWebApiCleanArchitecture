@@ -11,8 +11,9 @@ namespace Domain.Entities
         public double? WindGust { get; set; }
         public int? WindDirection { get; set; }
         public double? DailyRain { get; set; }
+        public double? WeeklyRain { get; set; }
+        public double? MonthlyRain { get; set; }
         public double? SolarRadiation { get; set; }
-
         public Guid StationId { get; set; }
         public Station Station { get; set; }
     }

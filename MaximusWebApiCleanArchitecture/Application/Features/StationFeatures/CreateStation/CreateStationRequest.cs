@@ -10,7 +10,6 @@ namespace Application.Features.StationFeatures.CreateStation
         float? Longitude,
         double? Altitude,
         ConnectionStatus ConnectionStatus,
-        DateTimeOffset? LastUpdated,
         UnitOfMeasurement UnitOfMeasurement)
     : IRequest<CreateStationResponse>;
 }

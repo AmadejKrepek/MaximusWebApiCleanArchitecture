@@ -1,22 +1,24 @@
-﻿using Application.Common.Exceptions;
+﻿using APILogic.Configuration;
+using Application.Common.Exceptions;
 using Application.Logging;
 using Application.Logic;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
 
-namespace Persistence.Repositories.Logic
+namespace APILogic.Logic
 {
-    public class CallAPI : ICallApi
+    public class CallPileusAPI : ICallApi
     {
         private readonly ILoggerManager _logger;
 
         protected HttpClient _client = new HttpClient();
-        private string _baseUrl = "";
+        private string _baseUrl;
 
-        public CallAPI(HttpClient client, string baseUrl, ILoggerManager logger)
+        public CallPileusAPI(HttpClient client, IOptions<BaseUrlOptions> baseUrlOptions, ILoggerManager logger)
         {
             _client = client;
-            _baseUrl = baseUrl;
+            _baseUrl = baseUrlOptions.Value.BaseUrls["Pileus"];
             _logger = logger;
         }
 
@@ -50,6 +52,21 @@ namespace Persistence.Repositories.Logic
             {
                 throw new HttpStatusException($"{ex.Message}");
             }
+        }
+
+        public Task<T> PostData<T>(string query, T data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<T> PutData<T>(string query, T data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteData<T>(string query)
+        {
+            throw new NotImplementedException();
         }
     }
 }

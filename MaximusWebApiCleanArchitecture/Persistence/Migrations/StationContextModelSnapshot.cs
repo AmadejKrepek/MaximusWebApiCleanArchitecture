@@ -40,9 +40,6 @@ namespace Persistence.Migrations
                     b.Property<DateTimeOffset?>("DateUpdated")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTimeOffset?>("LastUpdated")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<float?>("Latitude")
                         .HasColumnType("float");
 
@@ -84,6 +81,9 @@ namespace Persistence.Migrations
                     b.Property<double?>("Humidity")
                         .HasColumnType("double");
 
+                    b.Property<double?>("MonthlyRain")
+                        .HasColumnType("double");
+
                     b.Property<double?>("SolarRadiation")
                         .HasColumnType("double");
 
@@ -91,6 +91,9 @@ namespace Persistence.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<double?>("Temperature")
+                        .HasColumnType("double");
+
+                    b.Property<double?>("WeeklyRain")
                         .HasColumnType("double");
 
                     b.Property<int?>("WindDirection")

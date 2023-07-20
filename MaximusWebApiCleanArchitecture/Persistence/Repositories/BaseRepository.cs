@@ -62,11 +62,5 @@ namespace Persistence.Repositories
                 throw new BadRequestException("Entity does not exist.");
             }
         }
-
-        public void UpdateById(string id, T entity)
-        {
-            entity.Id = Guid.Parse(id);
-            Context.Update(entity);
-        }
     }
 }
